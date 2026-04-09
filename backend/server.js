@@ -3,17 +3,18 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './config/db.js';
 
+const app = express();
 dotenv.config();
 // Connect to database
 connectDB();
-const app = express();
 //cors setup
 app.use(cors({
-origin :"https://persnoal-blog-website.vercel.app",
+origin : process.env.FRONTENDURI,
 credentials:true,
 methods:["POST","PUT","UPDATE","DELETE"]
 },
 ))
+
 app.use(express.json());
 
 import authRoutes from './routes/authRoutes.js';
