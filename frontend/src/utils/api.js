@@ -3,7 +3,7 @@ import useAuthStore from '../store/useAuthStore';
 
 // We rely on the proxy in vite.config.js for '/api'
 const api = axios.create({
-  baseURL: import.meta.env.BASEURL + '/api',
+  baseURL: import.meta.env.VITE_BASEURL + '/api',
 });
 
 // Request interceptor for adding the bearer token
