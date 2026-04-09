@@ -9,6 +9,8 @@ frontend/build/
 # Backend
 backend/node_modules/
 backend/.env
+backend/test_upload.js
+backend/AdminSeed.js
 
 # Logs
 *.log
