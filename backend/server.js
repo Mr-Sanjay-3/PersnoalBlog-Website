@@ -4,6 +4,13 @@ import cors from 'cors';
 import connectDB from './config/db.js';
 
 dotenv.config();
+//cors setup
+app.use(cors({
+origin :"https://persnoal-blog-website.vercel.app",
+credentials:true,
+methods:["POST","PUT","UPDATE","DELETE"]
+},
+))
 
 // Connect to database
 connectDB();
@@ -29,7 +36,8 @@ app.get('/', (req, res ,next) => {
 
 app.use((req,res)=>{
       success:false,
-     res.status(404).json({message:"API ROUTE NOT FOUND",
+     res.status(404).json({
+      message:"API ROUTE NOT FOUND",
       path: req.originalUrl
     
      })
