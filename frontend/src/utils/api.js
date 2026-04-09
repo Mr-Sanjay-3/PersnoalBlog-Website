@@ -25,8 +25,11 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
-      useAuthStore.getState().logout();
-      window.location.href = '/login';
+      // Exclude auth endpoints from forcing a reload so frontend can show UI errors
+      if (error.config && !error.config.url.includes('/auth/login') && !error.config.url.includes('/auth/register')) {
+        useAuthStore.getState().logout();
+        window.location.href = '/login';
+      }
     }
     return Promise.reject(error);
   }

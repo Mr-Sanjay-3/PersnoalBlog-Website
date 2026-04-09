@@ -104,7 +104,7 @@ const PostDetails = () => {
                   <Bookmark size={20} fill={isSaved ? 'currentColor' : 'none'} />
                 </button>
               )}
-              {isAuthor && isAdmin && (
+              {isAdmin && (
                 <>
                   <Link to={`/edit/${post._id}`} className="p-2 bg-surface-dark hover:bg-gray-700 rounded-full text-gray-300 transition-colors">
                     <Edit size={20} />

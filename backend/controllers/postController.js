@@ -100,7 +100,8 @@ export const updatePost = async (req, res) => {
     const post = await Post.findById(req.params.id);
 
     if (post) {
-      if (post.author.toString() !== req.user._id.toString()) {
+      const isAdmin = req.user && req.user.role === 'admin';
+      if (post.author.toString() !== req.user._id.toString() && !isAdmin) {
         return res.status(401).json({ message: 'Not authorized to edit this post' });
       }
 
@@ -132,7 +133,8 @@ export const deletePost = async (req, res) => {
     const post = await Post.findById(req.params.id);
 
     if (post) {
-      if (post.author.toString() !== req.user._id.toString()) {
+      const isAdmin = req.user && req.user.role === 'admin';
+      if (post.author.toString() !== req.user._id.toString() && !isAdmin) {
         return res.status(401).json({ message: 'Not authorized to delete this post' });
       }
 
