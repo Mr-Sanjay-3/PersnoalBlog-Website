@@ -29,8 +29,7 @@ const GuestRoute = ({ children }) => {
 
 function App() {
   return (
-    
-    <BrowserRouter>
+
     <Router>
       <Layout>
         <Routes>
@@ -77,7 +76,6 @@ function App() {
         </Routes>
       </Layout>
     </Router>
-    </BrowserRouter>
   );
 }
 
