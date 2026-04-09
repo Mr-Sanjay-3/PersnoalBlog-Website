@@ -4,6 +4,9 @@ import cors from 'cors';
 import connectDB from './config/db.js';
 
 dotenv.config();
+// Connect to database
+connectDB();
+const app = express();
 //cors setup
 app.use(cors({
 origin :"https://persnoal-blog-website.vercel.app",
@@ -11,13 +14,6 @@ credentials:true,
 methods:["POST","PUT","UPDATE","DELETE"]
 },
 ))
-
-// Connect to database
-connectDB();
-
-const app = express();
-
-app.use(cors());
 app.use(express.json());
 
 import authRoutes from './routes/authRoutes.js';
