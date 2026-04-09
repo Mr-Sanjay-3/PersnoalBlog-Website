@@ -30,13 +30,15 @@ app.get('/', (req, res ,next) => {
 });
 
 
-app.use((req,res)=>{
+app.use((req,res ,next)=>{
       success:false,
      res.status(404).json({
       message:"API ROUTE NOT FOUND",
       path: req.originalUrl
-    
-     })
+
+     }),
+           next()
+
 })
 
 const PORT = process.env.PORT || 5000;
